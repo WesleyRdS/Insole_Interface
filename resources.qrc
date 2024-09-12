@@ -1,7 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
+<RCC>
     <qresource prefix="/">
         <file>InsoleView.qml</file>
     </qresource>
+    <qresource prefix="/">
+        <file>tensiometer.qml</file>
+    </qresource>
 </RCC>
-

@@ -12,12 +12,12 @@ SOURCES += \
     colorchanger.cpp \
     main.cpp \
     mainwindow.cpp \
-    tensionametro.cpp
+    tensiometer.cpp
 
 HEADERS += \
     colorchanger.h \
     mainwindow.h \
-    tensionametro.h
+    tensiometer.h
 
 FORMS += \
     mainwindow.ui
@@ -28,7 +28,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    InsoleView.qml
+    InsoleView.qml \
+    tensiometer.qml
 
 RESOURCES += \
     resources.qrc
