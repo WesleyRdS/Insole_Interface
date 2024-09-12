@@ -3,13 +3,13 @@
 
 Tensiometer::Tensiometer(QQuickItem *parent)
     :QQuickPaintedItem(parent),
-    m_tensiometerSize(500),
+    m_tensiometerSize(100),
     m_startAngle(50),
     m_alignAngle(260), //Deve ser 360 - 2*m_startAngle
     m_lowestRange(0),
     m_highestRange(3.3), //E é maior valor analogico para o ADC
     m_pression(2430),
-    m_archWidth(10),
+    m_archWidth(5),
     m_outerColor(QColor(180,255,0)),
     m_innerColor(QColor(71,88,205)),
     m_textColor(QColor(255,255,255)),
@@ -51,7 +51,7 @@ void Tensiometer::paint(QPainter *painter)
 
     //texto para exibir os valores
     painter->save();
-    QFont font("Halvetica", 24, QFont::Bold);
+    QFont font("Halvetica", 5, QFont::Bold);
     painter->setFont(font);
     pen.setColor(m_textColor);
     painter->setPen(pen);

@@ -19,17 +19,35 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/tensiometer.qml")));
 
     QObject *object = engine.rootObjects()[0];
-    QObject *tensiometer = object->findChild<QObject*>("tensioMeter");
-    Tensiometer *ptrTensiometer = qobject_cast<Tensiometer*>(tensiometer);
+
+
+    QStringList names = {"tensioMeter0", "tensioMeter1", "tensioMeter2", "tensioMeter3",
+                         "tensioMeter4", "tensioMeter5", "tensioMeter6", "tensioMeter7",
+                         "tensioMeter8", "tensioMeter9", "tensioMeter10", "tensioMeter11",
+                         "tensioMeter12", "tensioMeter13", "tensioMeter14", "tensioMeter15"};
+
+
+    QVector<Tensiometer*> tensiometers;
+
+
+    for (const QString& name : names) {
+        QObject* foundObject = object->findChild<QObject*>(name);
+        Tensiometer* tensiometer = qobject_cast<Tensiometer*>(foundObject);
+        if (tensiometer) {
+            tensiometers.append(tensiometer);
+        }
+    }
+
+
 
     qreal val = 0;
 
     QTimer timer1;
     QObject::connect(&timer1, &QTimer::timeout, [&]()
     {
-        val = val + 10;
-        ptrTensiometer->setPression(w.dataPression);
-
+        for(int i = 0; i < tensiometers.size(); i++){
+            tensiometers[i]->setPression(w.dataPression[i]);
+        }
     });
     timer1.start(5);
 
