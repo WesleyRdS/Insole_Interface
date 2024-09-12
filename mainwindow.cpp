@@ -75,6 +75,7 @@ void MainWindow::Read_Data_Sensors()
         if(Is_Data_Received == true){
             qDebug() << "Data from MCU: " << Data_From_MCU;
             dataArray = get_values_adc(Data_From_MCU);
+            dataPression = dataArray[0].toFloat();
             if(dataArray[0].toFloat() < 0.11){
                 updateColor(QColor("#0000FF"));
                 updateText(dataArray[0]);

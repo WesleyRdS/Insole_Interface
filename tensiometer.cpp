@@ -7,11 +7,11 @@ Tensiometer::Tensiometer(QQuickItem *parent)
     m_startAngle(50),
     m_alignAngle(260), //Deve ser 360 - 2*m_startAngle
     m_lowestRange(0),
-    m_highestRange(4000), //E é maior valor analogico para o ADC
+    m_highestRange(3.3), //E é maior valor analogico para o ADC
     m_pression(2430),
     m_archWidth(10),
-    m_outerColor(QColor(12,16,247)),
-    m_innerColor(QColor(51,88,255)),
+    m_outerColor(QColor(180,255,0)),
+    m_innerColor(QColor(71,88,205)),
     m_textColor(QColor(255,255,255)),
     m_backgroundColor(Qt::transparent)
 {
@@ -48,6 +48,26 @@ void Tensiometer::paint(QPainter *painter)
     painter->setPen(pen);
     painter->drawPie(rect.adjusted(pieSize, pieSize, -pieSize, -pieSize), startAngle * 16, spanAngle * 16);
     painter->restore();
+
+    //texto para exibir os valores
+    painter->save();
+    QFont font("Halvetica", 24, QFont::Bold);
+    painter->setFont(font);
+    pen.setColor(m_textColor);
+    painter->setPen(pen);
+    painter->drawText(rect.adjusted(m_tensiometerSize/30, m_tensiometerSize/30, -m_tensiometerSize/30, -m_tensiometerSize/4),
+                                    Qt::AlignCenter, QString::number((m_pression),'f',6));
+    painter->restore();
+
+    //Processo ativo atual
+    painter->save();
+    pen.setWidth(m_archWidth);
+    pen.setColor(m_outerColor);
+    qreal valueToAngle = ((m_pression - m_lowestRange)/(m_highestRange - m_lowestRange)) * spanAngle;
+    painter->setPen(pen);
+    painter->drawArc(rect.adjusted(m_archWidth, m_archWidth, -m_archWidth, -m_archWidth), startAngle * 16, valueToAngle * 16);
+    painter->restore();
+
 }
 
 qreal Tensiometer::getTensiometerSize()

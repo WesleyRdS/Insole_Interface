@@ -22,6 +22,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    double dataPression = 0;
+
 private slots:
     void on_connect_port_clicked();
 
