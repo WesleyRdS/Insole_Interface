@@ -11,7 +11,7 @@ Tensiometer::Tensiometer(QQuickItem *parent)
     m_pression(2430),
     m_archWidth(5),
     m_outerColor(QColor(180,255,0)),
-    m_innerColor(QColor(71,88,205)),
+    m_innerColor(QColor(0,0,0)),
     m_textColor(QColor(255,255,255)),
     m_backgroundColor(Qt::transparent)
 {

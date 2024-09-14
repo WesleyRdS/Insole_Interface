@@ -28,7 +28,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    ../Imagens/palmilha.png \
     InsoleView.qml \
+    images/palmilha.png \
     tensiometer.qml
 
 RESOURCES += \

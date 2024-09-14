@@ -67,7 +67,9 @@ OBJECTS       = colorchanger.o \
 		moc_colorchanger.o \
 		moc_mainwindow.o \
 		moc_tensiometer.o
-DIST          = ../../InsoleView.qml \
+DIST          = ../../../Imagens/palmilha.png \
+		../../InsoleView.qml \
+		../../images/palmilha.png \
 		../../tensiometer.qml \
 		/Qt/6.6.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.6.3/gcc_64/mkspecs/common/unix.conf \
@@ -1204,7 +1206,8 @@ compiler_rcc_clean:
 qrc_resources.cpp: ../../resources.qrc \
 		../../../Qt/6.6.3/gcc_64/libexec/rcc \
 		../../tensiometer.qml \
-		../../InsoleView.qml
+		../../InsoleView.qml \
+		../../images/palmilha.png
 	/home/wesley/Qt/6.6.3/gcc_64/libexec/rcc -name resources ../../resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -2065,7 +2068,10 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../../Qt/6.6.3/gcc_64/include/QtCore/qproperty.h \
 		../../../Qt/6.6.3/gcc_64/include/QtCore/qpropertyprivate.h \
 		../../../Qt/6.6.3/gcc_64/include/QtGui/qaccessible.h \
-		../../../Qt/6.6.3/gcc_64/include/QtGui/qaccessible_base.h
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qaccessible_base.h \
+		../../../Qt/6.6.3/gcc_64/include/QtCore/QTimer \
+		../../../Qt/6.6.3/gcc_64/include/QtCore/qtimer.h \
+		../../../Qt/6.6.3/gcc_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -2524,7 +2530,18 @@ tensiometer.o: ../../tensiometer.cpp ../../tensiometer.h \
 		../../../Qt/6.6.3/gcc_64/include/QtGui/qcolor.h \
 		../../../Qt/6.6.3/gcc_64/include/QtGui/qrgb.h \
 		../../../Qt/6.6.3/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/6.6.3/gcc_64/include/QtGui/qaccessible_base.h
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qaccessible_base.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/QPainter \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qpainter.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qpixmap.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qimage.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qpixelformat.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qpen.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qbrush.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qfontinfo.h \
+		../../../Qt/6.6.3/gcc_64/include/QtGui/qfontmetrics.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tensiometer.o ../../tensiometer.cpp
 
 qrc_resources.o: qrc_resources.cpp 

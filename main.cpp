@@ -39,14 +39,24 @@ int main(int argc, char *argv[])
     }
 
 
-
-    qreal val = 0;
-
     QTimer timer1;
     QObject::connect(&timer1, &QTimer::timeout, [&]()
     {
         for(int i = 0; i < tensiometers.size(); i++){
             tensiometers[i]->setPression(w.dataPression[i]);
+            if(w.dataPression[i] < 0.25){
+                tensiometers[i]->setInnerColor(QColor(0,0,0));
+                tensiometers[i]->setOuterColor(QColor(128,255,0));
+                tensiometers[i]->setTextColor(QColor(255,255,255));
+            }else if(w.dataPression[i] < 0.35){
+                tensiometers[i]->setInnerColor(QColor(128,255,0));
+                tensiometers[i]->setOuterColor(QColor(255,255,0));
+                tensiometers[i]->setTextColor(QColor(0,0,0));
+            }else{
+                tensiometers[i]->setInnerColor(QColor(255,255,0));
+                tensiometers[i]->setOuterColor(QColor(255,0,0));
+                tensiometers[i]->setTextColor(tensiometers[i]->getOuterColor());
+            }
         }
     });
     timer1.start(5);
