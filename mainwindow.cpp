@@ -3,21 +3,27 @@
 #include "QQuickView"
 #include "QVBoxLayout"
 #include <QQmlContext>
+#include "qcustomplot.h"
+#include "QTime"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , colorChanger(new ColorChanger(this))
 {
     ui->setupUi(this);
+    ui->plot->addGraph();
+    ui->plot->graph(0)->setScatterStyle(QCPScatterStyle::ssCircle);
+    ui->plot->xAxis->setLabel("TIME(ms)");
+    ui->plot->yAxis->setLabel("PRESSION");
+    ui->plot->xAxis->setRange(0,maxRangeX);
+    ui->plot->yAxis->setRange(0,3.3);
 
-    QQuickView *view = new QQuickView();
-    QWidget *container = QWidget::createWindowContainer(view, this);
-    view->rootContext()->setContextProperty("colorChanger", colorChanger);
-    view->setSource(QUrl(QStringLiteral("qrc:/InsoleView.qml")));
-    QVBoxLayout *layout = new QVBoxLayout(ui->insole_view);
-    layout->addWidget(container);
-    ui->insole_view->setLayout(layout);
+
+    ui->plot->graph(0)->setLineStyle(QCPGraph::lsLine);
+    ui->plot->graph(0)->setPen(QPen(QColor(127,0,5).lighter(200)));
+    ui->plot->graph(0)->setBrush(QBrush(QColor(127,0,5)));
+
+
 
     ttyACM = new QSerialPort();
 
@@ -32,6 +38,19 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::plot()
+{
+
+    if(now >= maxRangeX){
+        maxRangeX += 1;
+        ui->plot->xAxis->setRange(0,maxRangeX);
+    }
+    ui->plot->graph(0)->setData(qv_x,qv_y);
+    now += 0.030;
+    ui->plot->replot();
+    ui->plot->update();
 }
 void MainWindow::on_connect_port_clicked()
 {
@@ -65,6 +84,8 @@ void MainWindow::on_disconnect_port_clicked()
 void MainWindow::Read_Data_Sensors()
 {
     QStringList dataArray;
+
+
     if(ttyACM->isOpen()){
         while(ttyACM->bytesAvailable()){
             Data_From_MCU += ttyACM->readAll();
@@ -78,145 +99,81 @@ void MainWindow::Read_Data_Sensors()
             for(int i = 0; i < 16; i++){
                 dataPression[i] = dataArray[i].toDouble();
             }
+            qv_x.append(tempo);
+            switch(sensorSelected){
+                case 0:
+                    qv_y.append(dataPression[0]);
+                    plot();
+                    break;
+                case 1:
+                    qv_y.append(dataPression[1]);
+                    plot();
+                    break;
+                case 2:
+                    qv_y.append(dataPression[2]);
+                    plot();
+                    break;
+                case 3:
+                    qv_y.append(dataPression[3]);
+                    plot();
+                    break;
+                case 4:
+                    qv_y.append(dataPression[4]);
+                    plot();
+                    break;
+                case 5:
+                    qv_y.append(dataPression[5]);
+                    plot();
+                    break;
+                case 6:
+                    qv_y.append(dataPression[6]);
+                    plot();
+                    break;
+                case 7:
+                    qv_y.append(dataPression[7]);
+                    plot();
+                    break;
+                case 8:
+                    qv_y.append(dataPression[8]);
+                    plot();
+                    break;
+                case 9:
+                    qv_y.append(dataPression[9]);
+                    plot();
+                    break;
+                case 10:
+                    qv_y.append(dataPression[10]);
+                    plot();
+                    break;
+                case 11:
+                    qv_y.append(dataPression[11]);
+                    plot();
+                    break;
+                case 12:
+                    qv_y.append(dataPression[12]);
+                    plot();
+                    break;
+                case 13:
+                    qv_y.append(dataPression[13]);
+                    plot();
+                    break;
+                case 14:
+                    qv_y.append(dataPression[14]);
+                    plot();
+                    break;
+                case 15:
+                    qv_y.append(dataPression[15]);
+                    plot();
+                    break;
+                default:
+                    break;
 
-            if(dataArray[0].toFloat() < 0.11){
-                updateColor(QColor("#0000FF"));
-                updateText(dataArray[0]);
             }
-            if(dataArray[0].toFloat() >= 0.11 && dataArray[0].toFloat() < 0.22){
-                updateColor(QColor("#0400F2"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.22 && dataArray[0].toFloat() < 0.33){
-                updateColor(QColor("#0800E6"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.33 && dataArray[0].toFloat() < 0.44){
-                updateColor(QColor("#0C00DA"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.44 && dataArray[0].toFloat() < 0.55){
-                updateColor(QColor("#1000CE"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.55 && dataArray[0].toFloat() < 0.66){
-                updateColor(QColor("#1400C2"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.66 && dataArray[0].toFloat() < 0.77){
-                updateColor(QColor("#1800B6"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.77 && dataArray[0].toFloat() < 0.88){
-                updateColor(QColor("#1C00AA"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.88 && dataArray[0].toFloat() < 0.99){
-                updateColor(QColor("#20009F"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 0.99 && dataArray[0].toFloat() < 1.10){
-                updateColor(QColor("#240093"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.10 && dataArray[0].toFloat() < 1.21){
-                updateColor(QColor("#280087"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.21 && dataArray[0].toFloat() < 1.32){
-                updateColor(QColor("#2C0080"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.32 && dataArray[0].toFloat() < 1.43){
-                updateColor(QColor("#300074"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.43 && dataArray[0].toFloat() < 1.54){
-                updateColor(QColor("#34006B"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.54 && dataArray[0].toFloat() < 1.65){
-                updateColor(QColor("#380061"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.65 && dataArray[0].toFloat() < 1.76){
-                updateColor(QColor("#3C0057"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.76 && dataArray[0].toFloat() < 1.87){
-                updateColor(QColor("#40004C"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.87 && dataArray[0].toFloat() < 1.98){
-                updateColor(QColor("#440042"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 1.98 && dataArray[0].toFloat() < 2.09){
-                updateColor(QColor("#480037"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.09 && dataArray[0].toFloat() < 2.20){
-                updateColor(QColor("#4C002D"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.20 && dataArray[0].toFloat() < 2.31){
-                updateColor(QColor("#500022"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.31 && dataArray[0].toFloat() < 2.42){
-                updateColor(QColor("#540017"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.42 && dataArray[0].toFloat() < 2.53){
-                updateColor(QColor("#58000C"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.53 && dataArray[0].toFloat() < 2.64){
-                updateColor(QColor("#5C0000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.64 && dataArray[0].toFloat() < 2.75){
-                updateColor(QColor("#600000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.75 && dataArray[0].toFloat() < 2.86){
-                updateColor(QColor("#660000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.86 && dataArray[0].toFloat() < 2.97){
-                updateColor(QColor("#6A0000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 2.97 && dataArray[0].toFloat() < 3.08){
-                updateColor(QColor("#700000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 3.08 && dataArray[0].toFloat() < 3.19){
-                updateColor(QColor("#740000"));
-                updateText(dataArray[0]);
-            }
-            if(dataArray[0].toFloat() >= 3.19){
-                updateColor(QColor("#FF0000"));
-                updateText(dataArray[0]);
-            }
+            tempo = tempo + 0.030;
 
             Data_From_MCU = "";
             Is_Data_Received = false;
         }
-    }
-}
-
-void MainWindow::updateColor(const QColor &newColor)
-{
-    if (colorChanger) {
-        colorChanger->setColor(newColor);
-    }
-}
-
-void MainWindow::updateText(const QString &newText)
-{
-    if (colorChanger) {
-        colorChanger->setText(newText);
     }
 }
 
@@ -226,4 +183,14 @@ QStringList MainWindow::get_values_adc(QString string)
     aux = string.split(" ");
     aux.removeLast();
     return aux;
+}
+void MainWindow::on_sb_changeSensor_valueChanged(int arg1)
+{
+    tempo = 0;
+    now = 0;
+    maxRangeX = 10;
+    ui->plot->xAxis->setRange(0,maxRangeX);
+    qv_x.clear();
+    qv_y.clear();
+    sensorSelected = arg1;
 }

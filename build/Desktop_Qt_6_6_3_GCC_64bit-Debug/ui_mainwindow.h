@@ -12,12 +12,17 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -25,12 +30,17 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *insole_view;
-    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_3;
     QHBoxLayout *horizontalLayout;
     QLineEdit *port_field;
     QPushButton *connect_port;
     QPushButton *disconnect_port;
+    QSpacerItem *horizontalSpacer;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QSpinBox *sb_changeSensor;
+    QCustomPlot *plot;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -41,29 +51,57 @@ public:
         MainWindow->resize(800, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        insole_view = new QWidget(centralwidget);
-        insole_view->setObjectName("insole_view");
-        insole_view->setGeometry(QRect(10, 60, 391, 501));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(20, 20, 299, 25));
-        horizontalLayout = new QHBoxLayout(widget);
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName("verticalLayout");
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        port_field = new QLineEdit(widget);
+        port_field = new QLineEdit(centralwidget);
         port_field->setObjectName("port_field");
 
         horizontalLayout->addWidget(port_field);
 
-        connect_port = new QPushButton(widget);
+        connect_port = new QPushButton(centralwidget);
         connect_port->setObjectName("connect_port");
 
         horizontalLayout->addWidget(connect_port);
 
-        disconnect_port = new QPushButton(widget);
+        disconnect_port = new QPushButton(centralwidget);
         disconnect_port->setObjectName("disconnect_port");
 
         horizontalLayout->addWidget(disconnect_port);
+
+
+        horizontalLayout_3->addLayout(horizontalLayout);
+
+        horizontalSpacer = new QSpacerItem(100, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+
+        horizontalLayout_2->addWidget(label);
+
+        sb_changeSensor = new QSpinBox(centralwidget);
+        sb_changeSensor->setObjectName("sb_changeSensor");
+        sb_changeSensor->setMaximum(15);
+
+        horizontalLayout_2->addWidget(sb_changeSensor);
+
+
+        horizontalLayout_3->addLayout(horizontalLayout_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_3);
+
+        plot = new QCustomPlot(centralwidget);
+        plot->setObjectName("plot");
+
+        verticalLayout->addWidget(plot);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -84,6 +122,7 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         connect_port->setText(QCoreApplication::translate("MainWindow", "Connect", nullptr));
         disconnect_port->setText(QCoreApplication::translate("MainWindow", "Disconnect", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Sensor:", nullptr));
     } // retranslateUi
 
 };

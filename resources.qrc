@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>InsoleView.qml</file>
         <file>tensiometer.qml</file>
         <file>images/palmilha.png</file>
     </qresource>

@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
 
     QObject *object = engine.rootObjects()[0];
 
-
     QStringList names = {"tensioMeter0", "tensioMeter1", "tensioMeter2", "tensioMeter3",
                          "tensioMeter4", "tensioMeter5", "tensioMeter6", "tensioMeter7",
                          "tensioMeter8", "tensioMeter9", "tensioMeter10", "tensioMeter11",

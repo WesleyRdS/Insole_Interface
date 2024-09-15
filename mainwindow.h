@@ -6,7 +6,8 @@
 #include <QMessageBox>
 #include <QString>
 #include <QSerialPort>
-#include "colorchanger.h"
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,9 +22,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    double tempo = 0;
     double dataPression[16];
-
+    void plot();
+    int sensorSelected = 0;
+    double now = 0;
+    double maxRangeX = 10;
 
 private slots:
     void on_connect_port_clicked();
@@ -34,16 +38,14 @@ private slots:
 
     QStringList get_values_adc(QString string);
 
-    void updateColor(const QColor &newColor);
-
-    void updateText(const QString &text);
-
+    void on_sb_changeSensor_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
     QSerialPort* ttyACM;
     QString Data_From_MCU;
     bool Is_Data_Received;
-    ColorChanger *colorChanger;
+
+    QVector<double> qv_x, qv_y;
 };
 #endif // MAINWINDOW_H
