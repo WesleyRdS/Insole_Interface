@@ -43,18 +43,30 @@ int main(int argc, char *argv[])
     {
         for(int i = 0; i < tensiometers.size(); i++){
             tensiometers[i]->setPression(w.dataPression[i]);
-            if(w.dataPression[i] < 0.25){
+            if(w.dataPression[i] < 0.55){
                 tensiometers[i]->setInnerColor(QColor(0,0,0));
-                tensiometers[i]->setOuterColor(QColor(128,255,0));
+                tensiometers[i]->setOuterColor(QColor(0,0,255));
                 tensiometers[i]->setTextColor(QColor(255,255,255));
-            }else if(w.dataPression[i] < 0.35){
-                tensiometers[i]->setInnerColor(QColor(128,255,0));
+            }else if(w.dataPression[i]< 1.10){
+                tensiometers[i]->setInnerColor(QColor(0,0,255));
+                tensiometers[i]->setOuterColor(QColor(0,205,255));
+                tensiometers[i]->setTextColor(QColor(255,255,255));
+            }else if(w.dataPression[i] < 1.65){
+                tensiometers[i]->setInnerColor(QColor(0,205,255));
+                tensiometers[i]->setOuterColor(QColor(0,255,0));
+                tensiometers[i]->setTextColor(QColor(0,0,0));
+            }else if(w.dataPression[i] < 2.20){
+                tensiometers[i]->setInnerColor(QColor(0,255,0));
                 tensiometers[i]->setOuterColor(QColor(255,255,0));
                 tensiometers[i]->setTextColor(QColor(0,0,0));
-            }else{
+            }else if(w.dataPression[i] < 2.75){
                 tensiometers[i]->setInnerColor(QColor(255,255,0));
                 tensiometers[i]->setOuterColor(QColor(255,0,0));
-                tensiometers[i]->setTextColor(tensiometers[i]->getOuterColor());
+                tensiometers[i]->setTextColor(QColor(0,0,0));
+            }else{
+                tensiometers[i]->setInnerColor(QColor(255,0,0));
+                tensiometers[i]->setOuterColor(QColor(255,0,255));
+                tensiometers[i]->setTextColor(QColor(255,255,255));
             }
         }
     });

@@ -8,6 +8,7 @@ Window {
     visible: true
     width: 960
     height: 1820
+
     title: qsTr("Inosle View")
 
     Image {
@@ -32,6 +33,7 @@ Window {
         backgroundColor: backgroundColor
         x:175
         y:363
+
     }
 
     Tensiometer{

@@ -63,7 +63,7 @@
         <item>
          <widget class="QSpinBox" name="sb_changeSensor">
           <property name="maximum">
-           <number>15</number>
+           <number>16</number>
           </property>
          </widget>
         </item>
@@ -82,7 +82,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
