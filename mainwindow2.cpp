@@ -91,7 +91,7 @@ mainwindow2::~mainwindow2()
 {
     delete ui;
 }
-void mainwindow2::plot()
+void mainwindow2::plot2()
 {
 
     if(now >= maxRangeX){
@@ -167,92 +167,92 @@ void mainwindow2::Read_Data_Sensors2()
             qDebug() << "Data from MCU: " << Data_From_MCU;
             dataArray = get_values_adc2(Data_From_MCU);
             for(int i = 0; i < 16; i++){
-                dataPression[i] = dataArray[i].toDouble();
+                dataPression2[i] = dataArray[i].toDouble();
             }
             qv_x.append(tempo);
             switch(sensorSelected){
             case 0:
-                qv_y0.append(dataPression[0]);
-                qv_y1.append(dataPression[1]);
-                qv_y2.append(dataPression[2]);
-                qv_y3.append(dataPression[3]);
-                qv_y4.append(dataPression[4]);
-                qv_y5.append(dataPression[5]);
-                qv_y6.append(dataPression[6]);
-                qv_y7.append(dataPression[7]);
-                qv_y8.append(dataPression[8]);
-                qv_y9.append(dataPression[9]);
-                qv_y10.append(dataPression[10]);
-                qv_y11.append(dataPression[11]);
-                qv_y12.append(dataPression[12]);
-                qv_y13.append(dataPression[13]);
-                qv_y14.append(dataPression[14]);
-                qv_y15.append(dataPression[15]);
-                plot();
+                qv_y0.append(dataPression2[0]);
+                qv_y1.append(dataPression2[1]);
+                qv_y2.append(dataPression2[2]);
+                qv_y3.append(dataPression2[3]);
+                qv_y4.append(dataPression2[4]);
+                qv_y5.append(dataPression2[5]);
+                qv_y6.append(dataPression2[6]);
+                qv_y7.append(dataPression2[7]);
+                qv_y8.append(dataPression2[8]);
+                qv_y9.append(dataPression2[9]);
+                qv_y10.append(dataPression2[10]);
+                qv_y11.append(dataPression2[11]);
+                qv_y12.append(dataPression2[12]);
+                qv_y13.append(dataPression2[13]);
+                qv_y14.append(dataPression2[14]);
+                qv_y15.append(dataPression2[15]);
+                plot2();
                 break;
             case 1:
-                qv_y0.append(dataPression[0]);
-                plot();
+                qv_y0.append(dataPression2[0]);
+                plot2();
                 break;
             case 2:
-                qv_y1.append(dataPression[1]);
-                plot();
+                qv_y1.append(dataPression2[1]);
+                plot2();
                 break;
             case 3:
-                qv_y2.append(dataPression[2]);
-                plot();
+                qv_y2.append(dataPression2[2]);
+                plot2();
                 break;
             case 4:
-                qv_y3.append(dataPression[3]);
-                plot();
+                qv_y3.append(dataPression2[3]);
+                plot2();
                 break;
             case 5:
-                qv_y4.append(dataPression[4]);
-                plot();
+                qv_y4.append(dataPression2[4]);
+                plot2();
                 break;
             case 6:
-                qv_y5.append(dataPression[5]);
-                plot();
+                qv_y5.append(dataPression2[5]);
+                plot2();
                 break;
             case 7:
-                qv_y6.append(dataPression[6]);
-                plot();
+                qv_y6.append(dataPression2[6]);
+                plot2();
                 break;
             case 8:
-                qv_y7.append(dataPression[7]);
-                plot();
+                qv_y7.append(dataPression2[7]);
+                plot2();
                 break;
             case 9:
-                qv_y8.append(dataPression[8]);
-                plot();
+                qv_y8.append(dataPression2[8]);
+                plot2();
                 break;
             case 10:
-                qv_y9.append(dataPression[9]);
-                plot();
+                qv_y9.append(dataPression2[9]);
+                plot2();
                 break;
             case 11:
-                qv_y10.append(dataPression[10]);
-                plot();
+                qv_y10.append(dataPression2[10]);
+                plot2();
                 break;
             case 12:
-                qv_y11.append(dataPression[11]);
-                plot();
+                qv_y11.append(dataPression2[11]);
+                plot2();
                 break;
             case 13:
-                qv_y12.append(dataPression[12]);
-                plot();
+                qv_y12.append(dataPression2[12]);
+                plot2();
                 break;
             case 14:
-                qv_y13.append(dataPression[13]);
-                plot();
+                qv_y13.append(dataPression2[13]);
+                plot2();
                 break;
             case 15:
-                qv_y14.append(dataPression[14]);
-                plot();
+                qv_y14.append(dataPression2[14]);
+                plot2();
                 break;
             case 16:
-                qv_y15.append(dataPression[15]);
-                plot();
+                qv_y15.append(dataPression2[15]);
+                plot2();
                 break;
             default:
                 break;
@@ -275,7 +275,7 @@ QStringList mainwindow2::get_values_adc2(QString string)
 }
 
 
-void mainwindow2::on_spinBox_valueChanged(int arg1)
+void mainwindow2::on_sb_changeSensor_valueChanged(int arg1)
 {
     tempo = 0;
     now = 0;

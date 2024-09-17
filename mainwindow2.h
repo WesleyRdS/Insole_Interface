@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW2_H
 #define MAINWINDOW2_H
 
-#include <QMainWindow>
+#include <QDialog>
 #include <QDebug>
 #include <QMessageBox>
 #include <QString>
@@ -20,8 +20,8 @@ public:
     ~mainwindow2();
 
     double tempo = 0;
-    double dataPression[16];
-    void plot();
+    double dataPression2[16];
+    void plot2();
     int sensorSelected = 0;
     double now = 0;
     double maxRangeX = 10;
@@ -35,11 +35,13 @@ private slots:
 
     QStringList get_values_adc2(QString string);
 
-    void on_spinBox_valueChanged(int arg1);
+
+
+    void on_sb_changeSensor_valueChanged(int arg1);
 
 private:
     Ui::mainwindow2 *ui;
-    QSerialPort* ttyACM;
+    QSerialPort *ttyACM;
     QString Data_From_MCU;
     bool Is_Data_Received;
 

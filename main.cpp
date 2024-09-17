@@ -77,31 +77,33 @@ int main(int argc, char *argv[])
                     tensiometers[i]->setTextColor(QColor(255,255,255));
                 }
             }else{
-                tensiometers[i]->setPression(ui2.dataPression[i-16]);
-                if(ui2.dataPression[i-16] < 0.55){
+                tensiometers[i]->setPression(ui2.dataPression2[i-16]);
+                if(ui2.dataPression2[i-16] < 0.55){
                     tensiometers[i]->setInnerColor(QColor(0,0,0));
                     tensiometers[i]->setOuterColor(QColor(0,0,255));
                     tensiometers[i]->setTextColor(QColor(255,255,255));
-                }else if(ui2.dataPression[i-16]< 1.10){
+                }else if(ui2.dataPression2[i-16]< 1.10){
                     tensiometers[i]->setInnerColor(QColor(0,0,255));
                     tensiometers[i]->setOuterColor(QColor(0,205,255));
                     tensiometers[i]->setTextColor(QColor(255,255,255));
-                }else if(ui2.dataPression[i-16] < 1.65){
+                }else if(ui2.dataPression2[i-16] < 1.65){
                     tensiometers[i]->setInnerColor(QColor(0,205,255));
                     tensiometers[i]->setOuterColor(QColor(0,255,0));
                     tensiometers[i]->setTextColor(QColor(0,0,0));
-                }else if(ui2.dataPression[i-16] < 2.20){
+                }else if(ui2.dataPression2[i-16] < 2.20){
                     tensiometers[i]->setInnerColor(QColor(0,255,0));
                     tensiometers[i]->setOuterColor(QColor(255,255,0));
                     tensiometers[i]->setTextColor(QColor(0,0,0));
-                }else if(ui2.dataPression[i-16] < 2.75){
+                }else if(ui2.dataPression2[i-16] < 2.75){
                     tensiometers[i]->setInnerColor(QColor(255,255,0));
                     tensiometers[i]->setOuterColor(QColor(255,0,0));
                     tensiometers[i]->setTextColor(QColor(0,0,0));
-                }else{
+                }else if(ui2.dataPression2[i-16] < 3.3){
                     tensiometers[i]->setInnerColor(QColor(255,0,0));
                     tensiometers[i]->setOuterColor(QColor(255,0,255));
                     tensiometers[i]->setTextColor(QColor(255,255,255));
+                }else{
+
                 }
             }
         }
