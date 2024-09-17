@@ -1,9 +1,9 @@
-#include "tensiometer.h"
+    #include "tensiometer.h"
 #include "QPainter"
 
 Tensiometer::Tensiometer(QQuickItem *parent)
     :QQuickPaintedItem(parent),
-    m_tensiometerSize(100),
+    m_tensiometerSize(50),
     m_startAngle(50),
     m_alignAngle(260), //Deve ser 360 - 2*m_startAngle
     m_lowestRange(0),

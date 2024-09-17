@@ -11,16 +11,19 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    mainwindow2.cpp \
     qcustomplot.cpp \
     tensiometer.cpp
 
 HEADERS += \
     mainwindow.h \
+    mainwindow2.h \
     qcustomplot.h \
     tensiometer.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    mainwindow2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

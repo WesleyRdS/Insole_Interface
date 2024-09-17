@@ -6,8 +6,8 @@ import QtQuick.Layouts 1.1
 
 Window {
     visible: true
-    width: 960
-    height: 1820
+    width: 600
+    height: 600
 
     title: qsTr("Inosle View")
 
@@ -31,8 +31,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:175
-        y:363
+        x:96
+        y:470
 
     }
 
@@ -51,8 +51,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:175
-        y:238
+        x:165
+        y:470
     }
 
     Tensiometer{
@@ -70,8 +70,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:422
-        y:230
+        x:77
+        y:358
     }
 
     Tensiometer{
@@ -89,8 +89,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:422
-        y:308
+        x:127
+        y:358
     }
 
     Tensiometer{
@@ -108,8 +108,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:422
-        y:400
+        x:175
+        y:358
     }
 
     Tensiometer{
@@ -127,8 +127,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:628
-        y:208
+        x:78
+        y:270
     }
 
     Tensiometer{
@@ -146,8 +146,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:628
-        y:323
+        x:128
+        y:270
     }
 
     Tensiometer{
@@ -165,8 +165,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:628
-        y:427
+        x:178
+        y:270
     }
 
     Tensiometer{
@@ -184,8 +184,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:827
-        y:199
+        x:83
+        y:179
     }
 
     Tensiometer{
@@ -203,8 +203,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:827
-        y:325
+        x:141
+        y:179
     }
 
     Tensiometer{
@@ -222,8 +222,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:827
-        y:448
+        x:197
+        y:179
     }
 
     Tensiometer{
@@ -241,8 +241,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:1016
-        y:225
+        x:97
+        y:98
     }
 
     Tensiometer{
@@ -260,8 +260,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:1016
-        y:349
+        x:152
+        y:98
     }
 
     Tensiometer{
@@ -279,8 +279,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:1016
-        y:460
+        x:205
+        y:98
     }
 
     Tensiometer{
@@ -298,8 +298,8 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:1187
-        y:307
+        x:133
+        y:26
     }
 
     Tensiometer{
@@ -317,8 +317,313 @@ Window {
         innerColor: innerColor
         textColor: textColor
         backgroundColor: backgroundColor
-        x:1187
-        y:447
+        x:194
+        y:26
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter16'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 463
+        y: 470
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter17'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 389
+        y: 470
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter18'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 472
+        y: 358
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter19'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 422
+        y: 358
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter20'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 374
+        y: 358
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter21'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 476
+        y: 270
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter22'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 426
+        y: 270
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter23'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 376
+        y: 270
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter24'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 471
+        y: 179
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter25'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 413
+        y: 179
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter26'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 357
+        y: 179
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter27'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 457
+        y: 98
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter28'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 402
+        y: 98
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter29'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 349
+        y: 98
+    }
+
+    Tensiometer{
+        objectName: 'tensioMeter30'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 421
+        y: 26
+    }
+
+
+    Tensiometer{
+        objectName: 'tensioMeter31'
+
+        width: tensiometerSize
+        height: tensiometerSize
+        startAngle: startAngle
+        alignAngle: alignAngle
+        lowestRange: lowestRange
+        highestRange: highestRange
+        pression: pression
+        archWidth: archWidth
+        outerColor: outerColor
+        innerColor: innerColor
+        textColor: textColor
+        backgroundColor: backgroundColor
+        x: 360
+        y: 26
     }
 
 
