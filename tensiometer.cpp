@@ -55,7 +55,7 @@ void Tensiometer::paint(QPainter *painter)
     painter->setFont(font);
     pen.setColor(m_textColor);
     painter->setPen(pen);
-    painter->drawText(rect.adjusted(m_tensiometerSize/30, m_tensiometerSize/30, -m_tensiometerSize/30, -m_tensiometerSize/4),
+    painter->drawText(rect.adjusted(m_tensiometerSize/30, m_tensiometerSize, -m_tensiometerSize/30, -m_tensiometerSize/4),
                                     Qt::AlignCenter, QString::number((m_pression),'f',6));
     painter->restore();
 
