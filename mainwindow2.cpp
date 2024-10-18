@@ -132,6 +132,7 @@ void mainwindow2::on_connect_port2_clicked()
 
     if(ttyACM->isOpen()){
         qDebug() << "Serial Port is Connect in " << ttyACM->portName();
+        ttyACM->write("START");
     }
     else{
         qDebug() << "Unable to Connect Port " << ttyACM->portName();
@@ -143,6 +144,7 @@ void mainwindow2::on_connect_port2_clicked()
 void mainwindow2::on_disconnect_port2_clicked()
 {
     if(ttyACM->isOpen()){
+        ttyACM->write("STOP");
         ttyACM->close();
         qDebug() << "Device discconected from port " << ttyACM->portName();
     }
@@ -167,7 +169,7 @@ void mainwindow2::Read_Data_Sensors2()
             qDebug() << "Data from MCU: " << Data_From_MCU;
             dataArray = get_values_adc2(Data_From_MCU);
             for(int i = 0; i < 16; i++){
-                dataPression2[i] = dataArray[i].toDouble();
+                dataPression2[i] = dataArray[i].toDouble() * ADC_RAW_TO_VOLTAGE;
             }
             qv_x.append(tempo);
             switch(sensorSelected){

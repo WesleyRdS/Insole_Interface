@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW2_H
 #define MAINWINDOW2_H
-
+#define ADC_RAW_TO_VOLTAGE  0.00005035477f
 #include <QDialog>
 #include <QDebug>
 #include <QMessageBox>
